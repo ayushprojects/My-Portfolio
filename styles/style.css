@@ -1,0 +1,108 @@
+* {
+   --grey:#ECF2FF
+   --blue:#3E54AC
+   --voilet:#655DBB
+   --light-voilet:#BFACE2
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #ECF2FF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.card{
+    width: 50rem;
+    height: 30rem;
+    display: flex;
+    background-color: #BFACE2;
+    
+    border-radius: 10px;
+   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-shadow: 20px 10px 40px black;
+     max-width: 100%;
+    
+    
+}
+.left{
+    height: 100%;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+  
+}
+.left img{
+    max-width: 50%;
+    max-height: 50%;
+    margin-top: 8rem;
+    margin-left: 5rem;
+    border-radius: 10px;
+}
+
+
+/* right section */
+
+
+.right{
+    height: 100%;
+    width: 60%;
+    text-align: center;
+    padding-right: 1rem;
+}
+.right h1{
+    color: black;
+    font-size: 3rem;
+    letter-spacing: 1px;
+}
+.right h2{
+    margin-top: -20px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+.right p{
+     letter-spacing: 1px;
+     line-height: 1.5rem;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2.5rem;
+}
+.btn button{
+    padding: 10px 20px; 
+    border: none;
+    font-size: large;
+    font-weight: 600;
+    background-color:#655DBB;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px;
+    cursor: pointer;
+
+}
+.btn button:hover{
+    background-color: #3E54AC;
+    color: #BFACE2;
+      
+}
+
+
+.social-links{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 2rem;
+    height: 2rem;
+    font-size: 30px;
+}

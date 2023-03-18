@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.min.js"></script>
+    <link rel="stylesheet" href="styles/cv.css" />
+    <title>Ayush's website</title>
+  </head>
+  <body>
+    <canvas id="pdf-canvas"></canvas>
+
+    <div class="btn">
+      <button>
+        <a href="images/Ayush Namdev.pdf" download id="download-btn"
+          >Download Resume</a
+        >
+      </button>
+      <button onclick="goToMainPage()">Goto Main</button>
+    </div>
+    <script>
+      // Load PDF file
+      const url = "images/Ayush Namdev.pdf";
+      const loadingTask = pdfjsLib.getDocument(url);
+
+      // Render each page as an image
+      loadingTask.promise.then((pdf) => {
+        const numPages = pdf.numPages;
+        let currentPage = 1;
+
+        // Define function to render a page as an image
+        function renderPageAsImage(page) {
+          const scale = 1;
+          const viewport = page.getViewport({ scale });
+          const canvas = document.getElementById("pdf-canvas");
+          const context = canvas.getContext("2d");
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport,
+          };
+
+          // Render the page as an image
+          page.render(renderContext).promise.then(() => {
+            // Render the next page (if there is one)
+            if (currentPage < numPages) {
+              currentPage++;
+              pdf.getPage(currentPage).then(renderPageAsImage);
+            }
+          });
+        }
+
+        // Start rendering the first page
+        pdf.getPage(currentPage).then(renderPageAsImage);
+      });
+    </script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
