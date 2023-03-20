@@ -121,7 +121,7 @@ body{
     }
     
     .card {
-    width: 70%;
+    width: 90%;
     height: auto;
     flex-direction: column;
     position: static;
