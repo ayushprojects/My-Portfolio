@@ -44,7 +44,7 @@ body{
 }
 .left img{
    
-   
+    width: 10rem;
     border-radius: 10px;
 }
 
@@ -121,7 +121,7 @@ body{
     }
     
     .card {
-    width: 100%;
+    width: 70%;
     height: auto;
     flex-direction: column;
     position: static;
